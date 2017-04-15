@@ -1,0 +1,8 @@
+﻿<div class="aContent" >
+    <p class="title" >.remove()</p>
+    <p class="discription" >移除其选择器所选择到的所有元素。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">         &lt;div class='removeAll'  id="removeThis" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被移除 &lt;/div&gt;<br />         &lt;div class='removeAll'  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被移除 &lt;/div&gt;<br />         &lt;div class='removeAll'  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被移除 &lt;/div&gt;<br />         &lt;div class='removeAll'  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被移除 &lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到id为‘removeThis’的div,并将其从dom树中直接移除：</p>    <p class="code">        function removeThis(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ("#removeThis").remove();<br />        }    </p>
+    <p class="mt10 " >或者将一组元素从dom树中移除:</p>    <p class="code">        function removeAll(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ(".removeAll").remove();<br />        }    </p>
+    <p class="mt160" ></p>
+</div>

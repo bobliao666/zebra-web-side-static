@@ -1,0 +1,8 @@
+﻿<div class="aContent" >
+    <p class="title" >.insertBehind()</p>
+    <p class="discription" >此方法允许您将元素插入至某元素之后去。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div id="insertBehindMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt;&lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到id为‘insertBehindMe’的div,并将一个id为'iAmDiv'的元素，插入至insertBehindMe的下文之中：</p>    <p class="code">        function insertBehindMe(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ("#insertBehindMe").insertBehind('&lt;div id="iAmDiv" &gt;我被插到insertBehindMe的下文中去了 &lt;/div &gt;');        <br />        }    </p>
+    <p class="mt10 " >结果将会如下:</p>
+    <p class="code">        &lt;div id="insertBehindMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt;&lt;/div&gt;<br />        &lt;div id="iAmDiv" &gt;我被插到insertBehindMe的下文中去了 &lt;/div &gt;<br />    </p>    <p class="mt160" ></p>
+</div>

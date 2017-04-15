@@ -1,0 +1,99 @@
+﻿<div class="aContent" >
+    <p class="title" >.unbind(eventName,function)</p>
+    <p class="discription" >.unbind()方法允许将选择器中选择所有元素上的特定事件卸载。参数：一个事件名(string)，某个已在元素上绑定好的函数(function)(可选)，返回object。</p>
+    <p class="mt10">如有以下html结构:</p>
+    <p class="code">
+        &lt;div id="clickMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html &lt;/div&gt;
+    </p>
+    <p class="mt10">先给id为'clickMe'的元素绑定单击事件，之后再演示一个卸载事件(.unbind(eventName))的使用方法.</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#clickMe').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var innerhtml = zZ(this).html();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(innerhtml);<br />
+        });
+    </p>
+    <p class="mt10">若要卸载以上事件，可以这么做：</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#clickMe').unbind('click');
+    </p>
+    <p class="mt10">也可以为一组元素取消事件绑定：</p>
+    <p class="code">
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(1) &lt;/div&gt;<br />
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(2) &lt;/div&gt;<br />
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(3) &lt;/div&gt;<br />
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(4) &lt;/div&gt;<br />
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(5) &lt;/div&gt;<br />
+        &lt;div class="allClick" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(6) &lt;/div&gt;
+    </p>
+     <p class="mt10">先给class为'allClick'的一组元素绑定单击事件，之后再演示一个卸载事件(.unbind(eventName))的使用方法.</p>
+     <p class="code">
+        zZ('.clickAll').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var innerhtml = zZ(this).html();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(innerhtml);<br />
+        });
+    </p>
+    <p class="mt10">若要卸载以上事件，可以这么做：</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('.clickAll').unbind('click');
+    </p>
+    <p class="mt10">如果一个元素上绑定了多个相同的事件，并要将所有这些事件取消绑定：</p>
+    <p class="code">
+        &lt;div id="clickMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html &lt;/div&gt;
+    </p>
+    <p class="mt10">先给id为'clickMe'的元素绑定多个单击事件，之后再演示一个卸载事件(.unbind(eventName))的使用方法.</p>
+    <p class="code">
+        zZ('#clickMe').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(1);<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(2);<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(3);<br />
+        });
+    </p>
+    <p class="mt10">若要卸载以上所有事件，可以这么做：</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#clickMe').unbind('click');
+    </p>
+    <p class="detailTitle">按需卸载:</p>
+    <p class="mt10">如有以下元素：</p>
+    <p class="code">
+        &lt;div id="clickMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html &lt;/div&gt;
+    </p>
+    <p class="mt10">先给id为'clickMe'的元素绑定多个单击事件，之后再演示一个卸载事件(.unbind(eventName))的使用方法.</p>
+    <p class="code">
+        zZ('#clickMe').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(1);<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(2);<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(3);<br />
+        });
+    </p>
+    <p class="mt10">现在的需求就是只卸载alert(2)的这个方法，要怎么做呢，可能要将绑定方法进行一个小的修改，再用另一种方式将它卸载掉：</p>
+    <p> 重新编写的绑定方法: </p>
+    <p class="code">
+        var funcOne = function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(1);<br />
+        }<br /><br />
+
+        var funcTwo = function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(2);<br />
+        }<br /><br />
+
+        var funcThree = function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(3);<br />
+        }<br /><br />
+
+        zZ('#clickMe').bind('click',funcOne).bind('click',funcTwo).bind('click',funcThree);
+    </p>
+    <p class="mt10">下面我就可以将'funcTwo'卸载掉了：</p>
+    <p class="code">
+        zZ('#clickMe').unbind('click',funcTwo);
+    </p>
+    <p class="mt10">另外两个方法不会被移除，只是移除了funcTwo的alert(2).</p>
+    <p class="mt160" ></p>
+</div>

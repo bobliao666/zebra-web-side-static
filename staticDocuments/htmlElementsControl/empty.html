@@ -1,0 +1,8 @@
+﻿<div class="aContent" >
+    <p class="title" >.empty()</p>
+    <p class="discription" >清空该元素下所有的子集节点(文本无效)。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">                &lt;div id="emptyThis" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; <br />         &nbsp;&nbsp;&nbsp;&nbsp; &lt;div  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被清空 &lt;/div&gt;<br />        &nbsp;&nbsp;&nbsp;&nbsp; &lt;div  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被清空 &lt;/div&gt;<br />        &nbsp;&nbsp;&nbsp;&nbsp; &lt;div  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被清空 &lt;/div&gt;<br />        &nbsp;&nbsp;&nbsp;&nbsp; &lt;div  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 将被清空 &lt;/div&gt;<br />        &lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到id为‘emptyThis’的div,并将其下属节点全部清空(既清空其内容)：</p>    <p class="code">        function emptyThis(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ("#emptyThis").empty();<br />        }    </p>
+    <p class="mt10 " >需要注意的是，此方法针对其下级元素，其根元素下的文本将被忽略。</p>
+    <p class="mt160" ></p>
+</div>

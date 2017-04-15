@@ -1,0 +1,165 @@
+﻿<div class="aContent" >
+    <p class="title" >.bind(eventName,function)</p>
+    <p class="discription" >.bind()方法允许在选择器所选择的元素上绑定事件。参数：一个事件名(string)，一个事件触发后调用的函数(function)，返回object。</p>
+    <p class="mt10">如有以下html结构:</p>
+    <p class="code">
+        &lt;div id="clickMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html &lt;/div&gt;
+    </p>
+    <p class="mt10">要求在id为‘clickMe’的元素上动态绑定一个click(单击)事件,并alert其元素的html内容</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#clickMe').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var innerhtml = zZ(this).html();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(innerhtml);<br />
+        });
+    </p>
+    <p class="mt10">如上文所示，使用选择器选中'clickMe'元素，使用.bind()函数绑定一个click(单击)事件，当您鼠标单击该元素时，它将弹出其html内容.</p>
+    <p>需要注意的是：</p>
+    <p>1.在事件函数内使用'this'关键字可以直接调用到本元素，即id为‘clickMe’它本身.</p>
+    <p>2.在填写事件名称时，不需要像传统dom方法注册事件时，事件名称带有'on',比如需要注册'onClick'事件，那就简写成'click'.</p>
+    <p>也可以为一组html元素设置事件:</p>
+    <p class="code">
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(1) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(2) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(3) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(4) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(5) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(6) &lt;/div&gt;<br />
+        &lt;div class="allOfMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我弹出本元素内的html(7) &lt;/div&gt;
+    </p>
+    <p class="mt10">要求在class为‘allOfMe’的元素上动态绑定一个click(单击)事件,并在任意一个‘allOfMe’被单击时，弹出任意一个被点中之元素的html内容.</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('.allOfMe').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var innerhtml = zZ(this).html();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(innerhtml);<br />
+        });
+    </p>
+    <p class="mt10">需要注意的是，'this'在这里，它是指被点中之元素的本身.</p>
+    <p class="detailTitle">多事件:</p>
+    <p class="mt10">zTool允许在同一个元素内绑定多个事件，并且支持让多个事件在任意浏览器中按照顺序执行。</p>
+    <p class="mt10">如有以下html结构:</p>
+    <p class="code">
+        &lt;div id="clickFunc" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 点击我 &lt;/div&gt;
+    </p>
+    <p class="mt10">要求在id为‘clickFunc’的元素上动态绑定三个click事件,并按顺序分别alert——1,2,3</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#clickFunc').bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert('1');<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert('2');<br />
+        }).bind('click',function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert('3');<br />
+        });
+    </p>
+    <p class="mt10">如上文所示，同时绑定三个事件在'clickFunc'之中.</p>
+    <p >当点击'clickFunc'时，它将会按照顺序执行同一事件下所有被绑定过的函数.</p>
+    <p >还可以将代码写成这样进行绑定:</p>
+    <p class="code">
+        var funcOne = function(){alert('1');}<br />
+        var funcTwo = function(){alert('2');}<br />
+        var funcThree = function(){alert('3');}<br /><br />
+        
+        zZ('#clickFunc').bind('click',funcOne)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.bind('click',funcTwo)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.bind('click',funcThree);
+    </p>
+    <p class="mt10">这样绑定的好处将在本API"HTML事件操作"/".unbind()"中体现出来，请参阅"HTML事件操作"/".unbind()".</p>
+    <p class="detailTitle">event对象:</p>
+    <p class="mt10">允许在事件函数上使用一个形参来接收event对象，例如我给某元素绑定一个click(单击)事件，并将鼠标的坐标弹出显示，代码如下:</p>
+    <p class="code">
+        zZ('.allOfMe').bind('click',function(event){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var mouseX = event.x;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var mouseY = event.y;<br />
+        });
+    </p>
+    <p class="mt10">又或者利用event对象阻止冒泡，代码如下:</p>
+    <p class="code">
+        zZ('.allOfMe').bind('click',function(event){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;event.stopPropagation();<br />
+        });
+    </p>
+    <p>需要注意的是，笔者并未对event对象做任何包装，若遇见浏览器差异，请自行处理!</p>
+    <p class="detailTitle">.bind()方法所支持的事件列表:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                dom事件名
+                </th>
+                <th>
+                zTool绑定名
+                </th>
+                <th>
+                说明
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>onClick</td><td>click</td><td>鼠标点击事件，多用在某个对象控制的范围内的鼠标点击 </td></tr>
+            <tr class="alt-row" ><td>onDblClick</td><td>dblclick</td><td>鼠标双击事件  </td></tr>
+            <tr><td>onMouseDown</td><td>mousedown</td><td>鼠标上的按钮被按下了</td></tr>
+            <tr class="alt-row" ><td>onMouseUp</td><td>mouseup</td><td>鼠标按下后，松开时激发的事件</td></tr>
+            <tr><td>onMouseOver</td><td>mouseover</td><td>当鼠标移动到某对象范围的上方时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onMouseMove</td><td>mousemove</td><td>鼠标移动时触发的事件</td></tr>
+            <tr><td>onMouseOut</td><td>mouseout</td><td>当鼠标离开某对象范围时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onKeyPress</td><td>keypress</td><td>当键盘上的某个键被按下并且释放时触发的事件</td></tr>
+            <tr><td>onKeyDown</td><td>keydown</td><td>当键盘上某个按键被按下时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onKeyUp</td><td>keyup</td><td>当键盘上某个按键被按放开时触发的事件</td></tr>
+            <tr><td>onAbort</td><td>abort</td><td>图片在下载时被用户中断</td></tr>
+            <tr class="alt-row" ><td>onBeforeUnload</td><td>beforeunload</td><td>当前页面的内容将要被改变时触发的事件</td></tr>
+            <tr><td>onError</td><td>error</td><td>捕抓当前页面因为某种原因而出现的错误，如脚本错误与外部数据引用的错误 </td></tr>
+            <tr class="alt-row" ><td>onLoad</td><td>load</td><td>页面内空完成传送到浏览器时触发的事件，包括外部文件引入完成 </td></tr>
+            <tr><td>onMove</td><td>move</td><td>浏览器的窗口被移动时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onResize</td><td>resize</td><td>当浏览器的窗口大小被改变时触发的事件</td></tr>
+            <tr><td>onScroll</td><td>scroll</td><td>浏览器的滚动条位置发生变化时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onStop</td><td>stop</td><td>浏览器的停止按钮被按下时触发的事件或者正在下载的文件被中断</td></tr>
+            <tr><td>onUnload</td><td>unload</td><td>当前页面将被改变时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onBlur</td><td>blur</td><td>当前元素失去焦点时触发的事件</td></tr>
+            <tr><td>onChange</td><td>change</td><td>当前元素失去焦点并且元素的内容发生改变而触发的事件</td></tr>
+            <tr class="alt-row" ><td>onFocus</td><td>focus</td><td>当某个元素获得焦点时触发的事件</td></tr>
+            <tr><td>onReset</td><td>reset</td><td>当表单中RESET的属性被激发时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onSubmit</td><td>submit</td><td>一个表单被递交时触发的事件</td></tr>
+            <tr><td>onBounce</td><td>bounce</td><td>在Marquee内的内容移动至Marquee显示范围之外时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onFinish</td><td>finish</td><td>当Marquee元素完成需要显示的内容后触发的事件</td></tr>
+            <tr><td>onStart</td><td>start</td><td>当Marquee元素开始显示内容时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onBeforeCopy</td><td>beforecopy</td><td>当页面当前的被选择内容将要复制到浏览者系统的剪贴板前触发的事件</td></tr>
+            <tr><td>onBeforeCut</td><td>beforecut</td><td>当页面中的一部分或者全部的内容将被移离当前页面[剪贴]并移动到浏览者的系统剪贴板时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onBeforeEditFocus</td><td>beforeeditfocus</td><td>当前元素将要进入编辑状态</td></tr>
+            <tr><td>onBeforePaste</td><td>beforepaste</td><td>内容将要从浏览者的系统剪贴板传送[粘贴]到页面中时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onBeforeUpdate</td><td>beforeupdate</td><td>当浏览者粘贴系统剪贴板中的内容时通知目标对象</td></tr>
+            <tr><td>onContextMenu</td><td>contextmenu</td><td>当浏览者按下鼠标右键出现菜单时或者通过键盘的按键触发页面菜单时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onCopy</td><td>copy</td><td>当页面当前的被选择内容被复制后触发的事件</td></tr>
+            <tr><td>onCut</td><td>cut</td><td>当页面当前的被选择内容被剪切时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onDrag</td><td>drag</td><td>当某个对象被拖动时触发的事件</td></tr>
+            <tr><td>onDragDrop</td><td>dragdrop</td><td>一个外部对象被鼠标拖进当前窗口或者帧</td></tr>
+            <tr class="alt-row" ><td>onDragEnd</td><td>dragend</td><td>当鼠标拖动结束时触发的事件，即鼠标的按钮被释放了</td></tr>
+            <tr><td>onDragEnter</td><td>dragenter</td><td>当对象被鼠标拖动的对象进入其容器范围内时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onDragLeave</td><td>dragleave</td><td>当对象被鼠标拖动的对象离开其容器范围内时触发的事件</td></tr>
+            <tr><td>onDragOver</td><td>dragover</td><td>当某被拖动的对象在另一对象容器范围内拖动时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onDragStart</td><td>dragstart</td><td>当某对象将被拖动时触发的事件</td></tr>
+            <tr><td>onDrop</td><td>drop</td><td>在一个拖动过程中，释放鼠标键时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onLoseCapture</td><td>losecapture</td><td>当元素失去鼠标移动所形成的选择焦点时触发的事件</td></tr>
+            <tr><td>onSelect</td><td>select</td><td>当文本内容被选择时的事件</td></tr>
+            <tr class="alt-row" ><td>onSelectStart</td><td>selectstart</td><td>当文本内容选择将开始发生时触发的事件</td></tr>
+            <tr><td>onAfterUpdate</td><td>afterupdate</td><td>当数据完成由数据源到对象的传送时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onCellChange</td><td>cellchange</td><td>当数据来源发生变化时</td></tr>
+            <tr><td>onDataAvailable</td><td>dataavailable</td><td>当数据接收完成时触发事件</td></tr>
+            <tr class="alt-row" ><td>onDatasetChanged</td><td>datasetchanged</td><td>数据在数据源发生变化时触发的事件</td></tr>
+            <tr><td>onDatasetComplete</td><td>datasetcomplete</td><td>当来子数据源的全部有效数据读取完毕时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onErrorUpdate</td><td>errorupdate</td><td>当使用onBeforeUpdate事件触发取消了数据传送时，代替onAfterUpdate事件</td></tr>
+            <tr><td>onRowEnter</td><td>rowenter</td><td>当前数据源的数据发生变化并且有新的有效数据时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onRowExit</td><td>rowexit</td><td>当前数据源的数据将要发生变化时触发的事件</td></tr>
+            <tr><td>onRowsDelete</td><td>rowsdelete</td><td>当前数据记录将被删除时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onRowsInserted</td><td>rowsinserted</td><td>当前数据源将要插入新数据记录时触发的事件</td></tr>
+            <tr><td>onAfterPrint</td><td>afterprint</td><td>当文档被打印后触发的事件</td></tr>
+            <tr class="alt-row" ><td>onBeforePrint</td><td>beforeprint</td><td>当文档即将打印时触发的事件</td></tr>
+            <tr><td>onFilterChange</td><td>filterchange</td><td>当某个对象的滤镜效果发生变化时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onHelp</td><td>help</td><td>当浏览者按下F1或者浏览器的帮助选择时触发的事件</td></tr>
+            <tr><td>onPropertyChange</td><td>propertychange</td><td>当对象的属性之一发生变化时触发的事件</td></tr>
+            <tr class="alt-row" ><td>onReadyStateChange</td><td>readystatechange</td><td>当对象的初始化属性值发生变化时触发的事件</td></tr>
+        </tbody>
+    </table>
+    <p class="mt160" ></p>
+</div>

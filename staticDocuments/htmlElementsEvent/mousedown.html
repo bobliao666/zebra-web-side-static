@@ -1,0 +1,20 @@
+﻿<div class="aContent" >
+    <p class="title" >.mousedown(function)</p>
+    <p class="discription" >.mousedown()允许绑定或触发mousedown(鼠标按下)事件</p>
+    <p class="mt10">如有以下html结构:</p>
+    <p class="code">
+        &lt;div id="mousedownMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt;触发事件弹出本元素内的html &lt;/div&gt;
+    </p>
+    <p class="mt10">要求在id为‘mousedownMe’的元素上动态绑定一个mousedown(鼠标按下)事件,并alert其元素的html内容</p>
+    <p >代码如下:</p>
+    <p class="code">
+        zZ('#mousedownMe').mousedown(function(){<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var innerhtml = zZ(this).html();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;alert(innerhtml);<br />
+        });
+    </p>
+    <p class="mt10">或者触发其mousedown事件</p>
+    <p class="code">
+        zZ('#mousedownMe').mousedown();
+    </p>
+</div>

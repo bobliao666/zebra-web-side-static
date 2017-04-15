@@ -1,0 +1,9 @@
+﻿<div class="aContent" >
+    <p class="title" >.Elements()</p>
+    <p class="discription" >返回zTool选择器所载入到的所有Dom元素，返回值为数组'[]'/Array。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br /><br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到所有的div元素从zTool选择器中取出Dom元素，并且使用innerhtml循环获得其内容：</p>    <p class="code">        function findAllDivElements(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;var Elements&nbsp;&nbsp;=&nbsp;&nbsp;zZ("&lt;div&gt;").Elements();<br />        &nbsp;&nbsp;&nbsp;&nbsp;for(var i=0;i&lt;Elements.length;i++){<br />        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(Elements[i].innerHTNL);<br />        &nbsp;&nbsp;&nbsp;&nbsp;}        <br />        }    </p>
+
+    <p class="mt10" >通过以上代码可以取得上文所提html元素的内容，通过.Elements()方法，可以从选择器中直接将Dom元素提出操作。</p>
+    <p class="mt160" ></p>
+</div>

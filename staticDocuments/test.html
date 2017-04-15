@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../Content/script/zTool.Core/zTool.Core-Alpha-1.1.4.js" type="text/javascript"></script>
+    <script src="../Content/script/zTool.Plugs/zTool.zChart.js" type="text/javascript"></script>
+    <style>
+        .fan{-webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+        .fan:hover{-webkit-transition: all .2s ease-out; transition: all .2s ease-out; }
+    </style>
+    <script>
+        zZ(document).ready(function () {
+
+                                    zZ('<body>').zChart({
+                                        box: {
+                                            title: 'Browser market shares at a specific website, 2010',
+                                            width: 600, 
+                                            height: 400,
+                                            style: "border-radius: 4px 4px;border:1px solid #ccc;margin:10px;background:#fff"
+                                        },
+                                        chart: {
+                                            type: 'pie',
+                                            data: [{ name: "Firefox", data: 45.0, color: "#40423f" }
+                                            ,
+                                            { name: "IE", data: 26.8, color: "#168ae7" }
+                                            ,
+                                            { name: "Chrome", data: 12.8, color: "#0089f9" }
+                                            ,
+                                            { name: "Safari", data:8.5, color: "#e716a9" }
+                                            ,
+                                            { name: "Opera", data: 6.2, color: "#f92e00" }
+                                            ,
+                                            { name: "IE", data: 26.8, color: "#168ae7" }
+                                            ,
+                                            { name: "Chrome", data: 12.8, color: "#0089f9" }
+                                            ,
+                                            { name: "Safari", data: 8.5, color: "#e716a9" }
+                                            ,
+                                            { name: "Opera", data: 6.2, color: "#f92e00" }
+                                            ,
+                                            { name: "Others", data: 0.7, color: "#e716a9" }]
+                                        }
+                                    });
+
+//            var reg = new RegExp('^(<(?<tag>[a-z|A-Z]+)>)(</(<tag>)>)$');
+//            var div = "<div></div>";
+//            alert(reg.test(div));
+
+//            var reg = new RegExp('(^[a-z]{1,})([ ]{1,})([A-Z]{1,}$)');
+//            var str = "aabbcc       AABBCC";
+//            alert(reg.test(str));
+
+//            var reg = new RegExp('^[\#]');
+//            var str = "#goodJob";
+//            alert(reg.test(str));
+
+//            var reg = new RegExp('^[\.]');
+//            var str = ".goodJob";
+//            alert(reg.test(str));
+
+//            var reg = new RegExp('^<.{1,}>');
+//            var str = "<div>";
+//            alert(reg.test(str));
+
+//            var reg = new RegExp(
+//            '(^[\:])([a-zA-Z0-9]{1,}=.{1,}$)'
+//            );
+//            var str = ":id=good";
+//              alert(reg.test(str));
+        });
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

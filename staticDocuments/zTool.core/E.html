@@ -1,0 +1,9 @@
+﻿<div class="aContent" >
+    <p class="title" >.E()</p>
+    <p class="discription" >返回zTool选择器所载入到的第一个Dom元素，返回值为Object。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-co lor:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br /><br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到第一个"div"Dom元素，并使用该元素输出innerHTML：</p>    <p class="code">        function findSingleDiv(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;var Element&nbsp;&nbsp;=&nbsp;&nbsp;zZ("&lt;div&gt;").E();<br />        &nbsp;&nbsp;&nbsp;&nbsp;alert(Element.innerHTNL);<br />        <br />        }    </p>
+
+    <p class="mt10" >通过以上代码可以取得上文所提div元素的内容，通过.E()方法，可以从选择器中单独将所查找并载入到zTool中的第一个Dom元素提出操作。</p>
+    <p class="mt160" ></p>
+</div>

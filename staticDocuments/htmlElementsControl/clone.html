@@ -1,0 +1,10 @@
+﻿<div class="aContent" >
+    <p class="title" >.clone()</p>
+    <p class="discription" >此方法可以将选择器中的第一位元素,在内存中创建一个副本，不予dom树中的任何一个对象产生引用。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div id="cloneMe" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt;我将被替换&lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到id为‘cloneMe’的div,并将其在内存中创建一个副本：</p>    <p class="code">        function cloneMe(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;var cNode = zZ("#cloneMe").clone();        <br />        }    </p>
+    <p class="mt10 " >上文便是将id为'cloneMe'的div在内存中创建了一个副本叫'cNode',因为之间无任何引用，cNode将和dom中的'cloneMe'节点的双等号判断为false:</p>
+    <p class="code">        function cloneMe(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;var cNode = zZ("#cloneMe").clone();<br />        &nbsp;&nbsp;&nbsp;&nbsp;var tNode = zZ("#cloneMe").E();<br /><br />        &nbsp;&nbsp;&nbsp;&nbsp;tNode == cNode;<span class="colorcc" >//false</span><br />        &nbsp;&nbsp;&nbsp;&nbsp;tNode === cNode;<span class="colorcc" >//false</span><br />        &nbsp;&nbsp;&nbsp;&nbsp;tNode == zZ("#cloneMe").E();<span class="colorcc" >//true</span><br />        &nbsp;&nbsp;&nbsp;&nbsp;cNode == zZ("#cloneMe").E();<span class="colorcc" >//false</span><br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ("#cloneMe").clone() == zZ("#cloneMe").E();<span class="colorcc" >//false</span>        <br />        }    </p>
+    <p class="mt10 " >由上可看出，其'cloneMe'元素在内存中的副本，并不等同于其在dom树中的'cloneMe'节点.</p>
+    <p class="mt160" ></p>
+</div>

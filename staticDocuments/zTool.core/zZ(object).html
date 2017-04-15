@@ -1,0 +1,157 @@
+﻿<div class="aContent" >
+    <p class="title" >zZ(Object)</p>
+    <p class="discription" >简述：zTool的选择器，可以通过HTML元素的id,tagname,class,任何属性，以及自定义属性将元素载入到zTool中，以进行下一步操作。</p>
+    <p class="detailTitle">概要:</p>
+
+    <p class="mt10" >在开始操作任何元素之前，我们需要通过一些方式取得元素。</p>    <p>在传统的DOM编程里，可以使用如下方式去查找到我们需要的元素：</p>    <p class="mt20" >1.document.getElementById('id');<span class="color03c" >//此处为获取某id的元素</span></p>    <p>2.document.getElementsByName('name');<span class="color03c" >//此处为获得某name='name'的元素</span></p>    <p>3.document.getElementsByTagName('div');<span class="color03c" >//此处为获得tagName的方法</span></p>    <p class="mt20" >在zTool里可以使用如下方式将元素载入zTool之中：</p>    <p class="mt20" >1.zZ('#id');<span class="color03c" >//此处为获取某id的元素</span></p>    <p>2.zZ('id');<span class="color03c" >//此处为获取某id的元素</span></p>    <p>3.zZ('.class');<span class="color03c" >//此处为获取某class的元素</span></p>    <p>4.zZ(':属性=属性值');<span class="color03c" >//此处为获取某自定义属性的元素</span></p>    <p>5.zZ('&lt;tagName&gt;');<span class="color03c" >//此处为获取某tagName的元素</span></p>    <p>6.zZ(Object);<span class="color03c" >//此处直接将对象载入zTools</span></p>    <p class="mt20" >笔者将在下文中详细介绍以上六种取得元素的方法：</p>    <p class="detailTitle">zZ('#id')&nbsp;和&nbsp;zZ('id'):</p>    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div id="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了id为iAmDiv的元素 &lt;/div&gt;    </p>    <p class="mt10 " >要找到id为"iAmDiv"的div,使用如下代码便可载入元素：</p>    <p class="code">        zZ('#iAmDiv');<span class="colorcc" >//通常情况下，目标元素id前加井号可以让zTool查找并载入这个元素</span>        <br />        zZ('iAmDiv');<span class="colorcc" >//目标元素id前不加井号也可以找到</span>    </p>
+
+    <p class="mt10 " >要找到id为"iAmDiv"的div,并且alert出其中内容的完整代码是：</p>
+
+    <p class="code">        function FindiAmDiv(){        <br />            &nbsp;var content = zZ('#iAmDiv').html();<span class="colorcc" >//.html()方法用于输出其标签之间的内容,详情请参考api的“html对象操作”/“.html()”</span>        <br />            &nbsp;alert(content);        <br />        }    </p>
+
+    <p class="mt10 " >效果如下，单击box便可以看到</p>
+
+    <div  id="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" onclick="FindiAmDiv()" >
+        你找到了id为iAmDiv的元素
+    </div>
+
+    <p class="detailTitle">zZ('.class'):</p>
+
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了id为iAmDiv的元素1 &lt;/div&gt;        <br />         &lt;div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了id为iAmDiv的元素2 &lt;/div&gt;        <br />         &lt;div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了id为iAmDiv的元素3 &lt;/div&gt;        <br />         &lt;div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了id为iAmDiv的元素4 &lt;/div&gt;    </p>
+
+    <p class="mt10" >获得class为"iAmDiv"的一组元素对其操作，取得元素数组，并循环输出其中内容:</p>
+
+    <p class="code">
+        function FindClassiAmDiv(){
+         <br />
+            &nbsp;var iAmDivArr = zZ('.iAmDiv').Elements();<span class="colorcc" >//.Elements()是将查找到的所有元素以数组的方式输出的方法,详情请参考api的“zTool核心/基本/选择器”/“.Elements()”</span>
+             <br />
+            &nbsp;for( var i=0 ;i&lt;iAmDivArr.length ; i++ ){
+                <br />
+                &nbsp;&nbsp;alert(iAmDivArr[i].innerHTML);
+                 <br />
+            &nbsp;}
+             <br />
+        }
+    </p>
+
+    <p class="mt10" >当然，获得其数组中第一个元素并对其操作就不需要那么麻烦了:</p>
+
+    <p class="code">
+        function FindClassiAmDivOne(){
+         <br />
+            &nbsp;&nbsp;alert(zZ('.iAmDiv').html());<span class="colorcc" >//.html()方法用于输出其标签之间的内容,详情请参考api的“html对象操作”/“.html()”</span>
+         <br />
+        }
+    </p>
+
+    <p class="mt10 " >效果如下，单击按钮便可以看到：</p>
+
+    <div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000">你找到了id为iAmDiv的元素1 </div>
+    <div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000">你找到了id为iAmDiv的元素2 </div>
+    <div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000">你找到了id为iAmDiv的元素3 </div>
+    <div class="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000">你找到了id为iAmDiv的元素4 </div>
+    <input type="button" class="color00" value="点击这里输出四个.iAmDiv中的内容" onclick="FindClassiAmDiv()" />
+    <input type="button" class="color00" value="点击这里输出第一个.iAmDiv中的内容" onclick="FindClassiAmDivOne()" />
+
+    <p class="detailTitle">zZ(':属性=属性值'):</p>
+
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">
+        &lt;div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素 &lt;/div&gt;
+    </p>
+
+    <p class="mt10" >获得标有自定义属性divId="myDiv"的元素，并alert标间之中的内容:</p>
+
+    <p class="code">
+        function FindmyDiv(){        <br />            &nbsp;var content = zZ(':divId=myDiv').html();<span class="colorcc" >//.html()方法用于输出其标签之间的内容,详情请参考api的“html对象操作”/“.html()”</span>        <br />            &nbsp;alert(content);        <br />        }
+    </p>
+
+    <p class="mt10" >通过以上代码你可以找到属性divId="myDiv"的元素，但是填入选择器的语法需要注意一下：</p>
+    <p>1.以冒号开始；</p>
+    <p>2.冒号之后紧跟属性名称；</p>
+    <p>3.属性名称后面紧跟等号；</p>
+    <p>4.等号后紧跟属性的值；</p>
+    <p>5.属性值请勿使用引号包围；</p>
+    <p>如下所示：</p>
+    <p class="code">
+         &lt;div 属性="属性值" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素 &lt;/div&gt;
+         <br />
+        zZ(':属性=属性值');
+    </p>
+    <p class="mt10" >NOTE:该选择器除了可以查找自定义属性，也可以查找非自定义属性，例如id,class</p>
+    <p class="mt10" >属性选择器也可以像.class选择器一样，载入并操作元素数组：</p>
+
+    <p class="code">        &lt;div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素1 &lt;/div&gt;        <br />         &lt;div  divId="myDiv"  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素2 &lt;/div&gt;        <br />         &lt;div  divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素3 &lt;/div&gt;        <br />         &lt;div  divId="myDiv"  style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素4 &lt;/div&gt;    </p>
+
+    <p class="mt10" >找到所有的属性divId="myDiv"的元素，并循环alert出其中的内容：</p>
+
+    <p class="code">
+        function FindallmyDiv(){
+         <br />
+            &nbsp;var myDiv = zZ(':divId=myDiv').Elements();<span class="colorcc" >//.Elements()是将查找到的所有元素以数组的方式输出的方法,详情请参考api的“zTool核心/基本/选择器”/“.Elements()”</span>
+             <br />
+            &nbsp;for( var i=0 ;i&lt;myDiv.length ; i++ ){
+                <br />
+                &nbsp;&nbsp;alert(myDiv[i].innerHTML);
+                 <br />
+            &nbsp;}
+             <br />
+        }
+    </p>
+
+    <p class="mt10 " >效果如下，单击按钮便可以看到：</p>
+
+    <div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" > 你找到了divId为myDiv的元素1 </div> 
+    <div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" > 你找到了divId为myDiv的元素2 </div> 
+    <div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" > 你找到了divId为myDiv的元素3 </div> 
+    <div divId="myDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" > 你找到了divId为myDiv的元素4 </div>
+
+    <input type="button" class="color00" value="点击这里输出四个.iAmDiv中的内容" onclick="FindallmyDiv()" />
+    <input type="button" class="color00" value="点击这里输出第一个.iAmDiv中的内容" onclick="FindmyDiv()" />
+
+
+    <p class="detailTitle">zZ('&lt;tagName&gt;')：</p>
+
+    <p class="mt10" >有以下html结构：</p>
+
+    <p class="code">
+         &lt;body&gt;
+          <br />
+         &nbsp;&nbsp;&nbsp;&lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了div1 &lt;/div&gt;
+         <br />
+         &nbsp;&nbsp;&nbsp;&lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了div2 &lt;/div&gt;
+         <br />
+         &nbsp;&nbsp;&nbsp;&lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了div3 &lt;/div&gt;
+         <br />
+         &nbsp;&nbsp;&nbsp;&lt;div style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了div4 
+         <br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了span1 &lt;/span&gt;
+         <br />
+        &nbsp;&nbsp;&nbsp; &lt;/div&gt;
+         <br />
+         &lt;/body&gt;
+    </p>
+
+    <p class="mt10" >假设我需要找到其html/body下所有的div：</p>
+
+    <p class="code">
+        zZ('&lt;div&gt;');
+    </p>
+
+    <p class="mt10" >或者如果我想要找到html/body下所有的span：</p>
+
+    <p class="code">
+        zZ('&lt;span&gt;');
+    </p>
+
+    <p class="detailTitle">zZ(object)：</p>
+
+    <p class="mt10" >选择器支持将单个已经使用js取得的元素直接载入：</p>
+
+    <p class="code">
+        var tempObj = document.getElementById('目标元素id');
+        <br />
+        zZ(tempObj);
+    </p>
+    <p class="mt160" ></p>
+</div>

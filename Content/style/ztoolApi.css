@@ -1,0 +1,36 @@
+﻿html,body{ overflow:hidden }
+/*菜单背景*/
+.menuBackground{ width:330px; height:1000px;   float:left; overflow-x:hidden; display:inline-block; }
+.menuBackground .title{width:330px; height:120px; background-image:url(../images/titleImage.png); background-repeat:no-repeat}
+
+/*大菜单按钮*/
+.APIButton{overflow:hidden; height:32px; padding-left:10px; cursor:pointer; margin-top:1px; border-left:3px solid #a02e2e; line-height:32px; font-size:14px; color:#fff; font-family:Arial,幼圆; background-color:#4c4c4c; -webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+.APIButton:hover{ padding-left:10px; border-left:32px solid #D47937; -webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+
+/*小菜单按钮*/
+.APIButton_item{overflow:hidden; cursor:pointer; margin-top:1px;}
+.APIButton_item .dBLeft{overflow:hidden; height:32px; padding-left:20px; line-height:32px; font-size:12px; color:#fff;background-image:url(../images/Black/g.png);}
+.APIButton_item .dBRight{overflow:hidden; height:32px; width:5px; float:right; display:inline-block; margin-left:1px;background-color:#927f01;}
+
+
+/*div框架*/
+.mainDivFrame{  height:1000px; overflow-x:hidden;}
+
+/*子菜单box样式*/
+.itemContent{display:none}
+
+/*api内容*/
+.aContent{ margin:0px 20px 5px 20px; }
+.aContent p{font-family:Arial,幼圆;color:#000; font-size:14px; padding:3px;}
+.aContent .title{font-family:Segoe WP Light,幼圆; font-size:40px; white-space:nowrap; padding:5px 10px 5px 10px; margin-top:58px; border-bottom:3px solid #000; overflow:hidden;}
+.aContent .discription{font-family:Segoe WP Light,幼圆; font-size:18px; margin:5px 0px 5px 0px }
+.aContent .detailTitle{font-family:Segoe WP Light,幼圆; font-size:18px; padding:5px 0px 5px 0px;  margin-top:60px; border-bottom:1px solid #000; overflow:hidden;font-weight:bold}
+.aContent .code{font-size:12px; color:#fff; background-image:url(../images/Black/g.png); font-family:宋体; padding:20px; margin:20px 0px 20px 0px ; overflow:hidden}
+
+.aContent input[type='button']{ padding:5px; color#000; cursor:pointer }
+
+.aContent table{font-size:14px; cursor:default;color:#4e4d4d; font-family:Segoe WP,幼圆; border: 1px solid #a09e9e;border-bottom: 0px;border-right: 0px;  border-collapse: collapse; margin-top:10px; background-color:#eee}
+.aContent thead th,tbody td{border: 1px solid #a09e9e;border-top: 0px;border-left: 0px;  padding:5px;}
+.aContent thead th{font-weight:bold; background-color:#b8b8b8; color:#4e4d4d; font-size:18px;}
+.aContent tbody tr:hover td{background-color:#fff;}
+.aContent tbody tr.alt-row{background-color:#E1E3E3;}

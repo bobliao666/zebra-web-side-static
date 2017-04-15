@@ -1,0 +1,22 @@
+﻿<div class="aContent" >
+    <p class="title" >.css(name,value)</p>
+    <p class="discription" >使用该方法可以设置一个或多个html元素的样式属性，或者获取某一个元素的某个样式属性，接收两个参数，一个名称，一个值（可选），返回string/object。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >例如有以下代码：</p>    <p class="code">        &lt;div id="getMyStylePrototype" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 获得我的样式 &lt;/div&gt;    </p>    <p class="mt10" >如上所示，获得id为'getMyStylePrototype'的'background-color'：</p>    <p class="code">        getMyStylePrototype function(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;alert(zZ('#getMyStylePrototype').css('background-color'));<br />        }    </p>
+    <p class="mt10" >如上文代码所示，当您想要获得某个元素的样式属性的时候，可以在css()方法里填入一个样式属性名称，它将返回一个结果给你。</p>
+    <p>但是当我需要设置它的样式该怎么办呢，我们先看看下列代码：</p>
+    <p class="code">        &lt;div class"setAll" id="setMyStylePrototype" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 设置我的样式 &lt;/div&gt;<br />        &lt;div class"setAll" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 设置我的样式 &lt;/div&gt;<br />        &lt;div class"setAll" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 设置我的样式 &lt;/div&gt;<br />        &lt;div class"setAll" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 设置我的样式 &lt;/div&gt;<br />        &lt;div class"setAll" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 设置我的样式 &lt;/div&gt;    </p>
+    <p class="mt10" >现在我们先把id为'setMyStylePrototype'的元素的背景颜色换掉看看:</p>
+    <p class="code">        setMyStylePrototype function(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ('#setMyStylePrototype').css('background-color','#000');<br />        }    </p>
+    <p class="mt10" >运行以上代码你将看到id为"setMyStylePrototype"的元素背景色改为黑色的效果。</p>
+    <p >又或者我一次性改变多个属性:</p>
+    <p class="code">        setMyStylePrototype function(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ('#setMyStylePrototype').css('background-color','#ccc')<br />        &nbsp;&nbsp;&nbsp;&nbsp;.css('border','3px solid #f70202')<br />        &nbsp;&nbsp;&nbsp;&nbsp;.css('width','200px');<br />        }    </p>
+    <p class="mt10" >需要注意的是，在填写.css(name,value）‘name’这个参数的时候，请保持属性名称和在编写真实网页的写法为一致！</p>
+    <p >我们也可以设置一组的样式属性:</p>
+    <p class="code">        setMyStylePrototype function(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ('.setAll').css('background-color','#ccc');<br />        }    </p>
+    <p class="mt10" >在设置属性的时候，选择器中所有存在的元素将会被设置上您所指定的属性值。</p>
+    <p class="detailTitle">移除css属性:</p>
+    <p class="code">        setMyStylePrototype function(){<br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ('.setAll').css('background-color','remove');<br />        }    </p>
+    <p class="mt10" >上文所示代码将移除所有class名为setAll的'background-color'</p>
+    <p class="mt160" ></p>
+</div>

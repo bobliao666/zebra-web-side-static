@@ -1,0 +1,14 @@
+﻿html,body{overflow:hidden; background-color:#000514}
+/*设置背景图片*/
+#background_one{ position:absolute; z-index:1; top:0px; left:0px;  filter:alpha(opacity=0); opacity:0;}
+#background_tow{ position:absolute; z-index:1; top:0px; left:0px;  filter:alpha(opacity=0); opacity:0; display:none}
+
+/*设置页脚*/
+#footer{  background-image:url(../images/pblack/g.png); height:80px; position:absolute; z-index:2; width:100%; filter:alpha(opacity=0); opacity:0; }
+#footer #footerContent{ width:1000px; margin:0px auto 0px auto; list-style:none; overflow:hidden; padding-top:12px }
+#footer #footerContent #cLeft{float:left; width:500px; overflow:hidden;}
+#footer #footerContent #cRight{float:left; width:500px; overflow:hidden;}
+
+/*主框架*/
+.mainFrame{ background-color:transparent; width:100%; border-top:3px solid #d4793a; position:absolute; top:0px; left:0px; z-index:2; filter:alpha(opacity=0); opacity:0; }
+.mainFrame_tow{ background-color:transparent; width:100%; border-top:3px solid #d4793a; position:absolute; top:0px; left:0px; z-index:2; filter:alpha(opacity=0); opacity:0; display:none; }

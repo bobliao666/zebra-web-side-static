@@ -1,0 +1,18 @@
+﻿<div class="aContent" >
+    <p class="title" >zZ(Object)</p>
+    <p class="discription" >简述：zZ(Object)函数不但可以用来选择元素，也可以在其中输入html文本来制造元素。</p>
+    <p class="mt10">例如需要在body中制造一个div元素:</p>
+    <p class="code">
+        <span class="colorcc" >//下面这段代码将创建一个div，</span><br />
+        <span class="colorcc" >//并使用.appendTo()方法动态加入至&lt;body&gt;之中，</span><br />
+        <span class="colorcc" >//完成后使用.E()方法返回创建好的元素给tempObj</span><br />
+        var tempObj = zZ('&lt;div&gt;我是被动态添加的&lt;/div&gt;').appendTo('&lt;body&gt;').E();<br /><br />
+        <span class="colorcc" >//需要注意的是tempObj是可以被操作的，</span><br />
+        <span class="colorcc" >//我们可以继续将tempObj载入至zTool中进行其他操作</span><br />
+        zZ(tempObj).attr('id','thisIsMe').attr('class','looksGood');<br /><br /><br /><br />
+        <span class="colorcc" >//或者我不使用.E()方法取回纯dom对象：</span><br />
+        var tempObj = zZ('&lt;div&gt;我是被动态添加的&lt;/div&gt;').appendTo('&lt;body&gt;');<br />
+        tempObj.attr('id','thisIsMe').attr('class','looksGood');
+    </p>
+    <p class="mt160" ></p>
+</div>

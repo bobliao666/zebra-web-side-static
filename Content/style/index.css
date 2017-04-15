@@ -1,0 +1,31 @@
+﻿html,body { background-color:transparent; overflow-x:hidden}
+
+/*头部的css*/
+.pagehead{ width:1000px; height:285px; margin:0px auto 0px auto; overflow:hidden; background-image:url(../images/pblack/g.png); }
+.pagehead .pageheadContent{ width:1000px; height:285px;overflow:hidden; background-image:url(../images/pageheadBack.png); background-position:bottom left; background-repeat:no-repeat; position:relative}
+.pagehead .pageheadContent .pagename{ position:relative; font-size:140px; color:#000; font-family:Segoe WP Light; filter:alpha(opacity=18); opacity:0.18;  left:340px; top:135px; float:left }
+.pagehead .pageheadContent .pagetitle{position:relative;top:-150px; left:250px;float:left; clear:both;}
+
+/*内容框架*/
+.pageContent{ width:1000px; margin:0px auto 0px auto; overflow:hidden;  filter:alpha(opacity=0); opacity:0; display:none; }
+.pageContent .contentLeft{ overflow:hidden; width:497px; height:462px; float:left; display:inline-block; background-image:url(../images/indexContentLeft.png) }
+.pageContent .contentRight{ overflow:hidden; width:483px; height:462px; margin-left:20px; float:left; display:inline-block; background-image:url(../images/indexContentRight.png); background-position:top left; background-repeat:no-repeat;}
+
+/*下载按钮*/
+.APIButton{overflow:hidden; cursor:pointer; margin-top:2px;}
+.APIButton .dBLeft{overflow:hidden; height:32px; width:416px; padding-left:10px; border-left:3px solid #a02e2e; line-height:32px; font-size:12px; color:#fff; float:left; display:inline-block;background-image:url(../images/Black/g.png);-webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+.APIButton .dBRight{overflow:hidden; height:32px; width:46px; float:left; display:inline-block; margin-left:2px;background-image:url(../images/watchIcon.png)}
+
+.APIButton:hover .dBLeft{width:387px; padding-left:10px; border-left:32px solid #D47937; -webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+
+/*下载按钮*/
+.downLoadButton{overflow:hidden; cursor:pointer; margin-top:25px;}
+.downLoadButton .dBLeft{overflow:hidden; height:62px; width:396px; text-align:center; color:#fff; float:left; display:inline-block;  background-image:url(../images/Black/g.png);-webkit-transition: all .2s ease-out; transition: all .2s ease-out;}
+.downLoadButton .dBRight{overflow:hidden; height:62px; width:80px; line-height:62px; float:left; display:inline-block; font-family:Segoe WP Light; font-size:18px; color:#fff; text-align:right; padding-right:5px; margin-left:2px;background-image:url(../images/downIcon.png)}
+
+/*注意事项*/
+.noteDiv{ overflow:hidden; background-image:url(../images/Black/g.png); padding:3px; margin-top:17px; line-height:20px;}
+
+/*跳转菜单*/
+.portList{ position:absolute; top:0px; left:0px; float:left; overflow:hidden; filter:alpha(opacity=20); opacity:0.2;}
+.portList img{margin-top:100px; cursor:pointer}

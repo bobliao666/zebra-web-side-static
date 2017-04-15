@@ -1,0 +1,29 @@
+﻿<div class="aContent" >
+    <p class="title" >.find()</p>
+    <p class="discription" >下级选择器，可以在已经找到的元素里继续使用一级选择器的语法查找元素。</p>
+    <p class="detailTitle">说明:</p>
+    <p class="mt10" >已知有如下html结构代码：</p>    <p class="code">        &lt;div id="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="iAmDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="iAmDiv" mydiv='div' style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了正确的元素 &lt;/div&gt;<br /><br />        &lt;div id="notDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="notDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="notDiv" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />        &lt;div id="notDiv" mydiv='div' style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 错误 &lt;/div&gt;<br />    </p>    <p class="mt10 " >要求找到自定义属性为mydiv='div'的元素，但id一定是"iAmDiv"，可以通过如下方式筛选想要的元素：</p>    <p class="code">        function findMyDivInIAmDiv(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;zZ("#iAmDiv").find(":mydiv=div");        <br />        }    </p>
+
+    <p class="mt10" >通过以上代码你可以找到id为"iAmDiv"并且属性为 mydiv='div'的元素，但是填入选择器的语法需要注意一下：</p>
+    <p>1.以冒号开始；</p>
+    <p>2.冒号之后紧跟属性名称；</p>
+    <p>3.属性名称后面紧跟等号；</p>
+    <p>4.等号后紧跟属性的值；</p>
+    <p>5.属性值请勿使用引号包围；</p
+    <p>如下所示：</p>
+    <p class="code">
+         &lt;div 属性="属性值" style="border:1px solid #000; background-color:#fff; width:60px; height:60px; color:#000" &gt; 你找到了divId="myDiv"的元素 &lt;/div&gt;
+         <br />
+        zZ(':属性=属性值');
+    </p>
+    <p class="mt10" >NOTE:该选择器除了可以查找自定义属性，也可以查找非自定义属性，例如id,class</p>
+    <p >该下级选择器也可以多次查找，代码如下所示:</p>
+    <p class="code">
+         &lt;input type="text" class="data-goodOne" value="good" /&gt;<br />
+         &lt;input type="text"  value="no" /&gt;<br />
+         &lt;input type="button"  value="no" /&gt;
+    </p>
+    <p class="code">        function findInput(){        <br />        &nbsp;&nbsp;&nbsp;&nbsp;var thatValue = zZ("&lt;input&gt;").find(":type=text").find(":class=data-goodOne").val();<br />        &nbsp;&nbsp;&nbsp;&nbsp;alert(thatValue);        <br />        }    </p>
+    <p class="mt10" >通过以上示例可见，凡是在一级选择器中适用的匹配规则，在.find()中也同样适用，具体语法请参看"zTool核心/基本/选择器"/"zZ(object)"</p>
+    <p class="mt160" ></p>
+</div>
